@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -19,5 +20,8 @@ public class ApiUser {
     private String username;
     private String password;
     private String role;
+    private Date dob;
+    private String email;
+    private Long address_id;
 
 }
