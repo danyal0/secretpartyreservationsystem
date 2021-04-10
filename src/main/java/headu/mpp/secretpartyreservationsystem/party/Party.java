@@ -1,5 +1,8 @@
 package headu.mpp.secretpartyreservationsystem.party;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import headu.mpp.secretpartyreservationsystem.place.Place;
+import headu.mpp.secretpartyreservationsystem.user.ApiUser;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,5 +26,16 @@ public class Party {
     private String name;
     private Date party_date;
     private Long user_id;
+
+
+//    @ManyToOne
+//    @JoinColumn(name = "place_id")
+//    @JsonManagedReference
+//    private Place place;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    @JsonManagedReference
+//    private ApiUser apiUser;
 
 }
