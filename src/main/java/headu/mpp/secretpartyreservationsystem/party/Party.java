@@ -23,4 +23,5 @@ public class Party {
     private String name;
     private Date party_date;
     private Long user_id;
+
 }
