@@ -27,6 +27,7 @@ public class Party {
     private Date party_date;
     private Long user_id;
 
+
 //    @ManyToOne
 //    @JoinColumn(name = "place_id")
 //    @JsonManagedReference
@@ -36,4 +37,5 @@ public class Party {
 //    @JoinColumn(name = "user_id")
 //    @JsonManagedReference
 //    private ApiUser apiUser;
+
 }
