@@ -4,7 +4,10 @@ import headu.mpp.secretpartyreservationsystem.place.Place;
 import headu.mpp.secretpartyreservationsystem.place.PlaceRepository;
 import headu.mpp.secretpartyreservationsystem.place.PlaceService;
 import lombok.RequiredArgsConstructor;
+import headu.mpp.secretpartyreservationsystem.user.UserRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -17,6 +20,7 @@ public class PartyService {
 
     private final PartyRepository partyRepository;
     private final PlaceRepository placeRepository;
+    private final UserRepository userRepository;
 
     public Party viewParty(Long id) {
         Optional<Party> party = partyRepository.findById(id);
@@ -49,6 +53,10 @@ public class PartyService {
         Party partyToCreate = new Party();
         BeanUtils.copyProperties(party, partyToCreate);
         partyToCreate.setPlace_id(place.get().getId());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        Long curUserId = userRepository.findByUsername(currentPrincipalName).get().getId();
+        partyToCreate.setUser_id(curUserId);
         return partyRepository.save(partyToCreate);
     }
 
