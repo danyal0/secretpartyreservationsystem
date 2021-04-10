@@ -1,11 +1,14 @@
 package headu.mpp.secretpartyreservationsystem.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import headu.mpp.secretpartyreservationsystem.party.Party;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,5 +26,9 @@ public class ApiUser {
     private Date dob;
     private String email;
     private Long address_id;
+
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private List<Party> parties;
 
 }
