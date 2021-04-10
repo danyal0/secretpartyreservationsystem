@@ -3,7 +3,10 @@ package headu.mpp.secretpartyreservationsystem.place;
 import headu.mpp.secretpartyreservationsystem.party.Party;
 import headu.mpp.secretpartyreservationsystem.party.PartyRepository;
 import headu.mpp.secretpartyreservationsystem.party.PartyCreationRequest;
+import headu.mpp.secretpartyreservationsystem.user.UserRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 
@@ -21,6 +24,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PlaceService {
     private final PlaceRepository placeRepository;
+    private final UserRepository userRepository;
+
 
     public Place createPlace (PlaceCreationRequest request) {
         Place place = new Place();
