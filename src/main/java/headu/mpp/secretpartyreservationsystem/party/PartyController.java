@@ -1,6 +1,7 @@
 package headu.mpp.secretpartyreservationsystem.party;
 import headu.mpp.secretpartyreservationsystem.place.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,8 @@ public class PartyController {
 
     @PostMapping("/party")
     public ResponseEntity<Party> createParty (@RequestBody PartyCreationRequest request) {
-        return ResponseEntity.ok(partyService.createParty(request));
+
+        return new ResponseEntity<>(partyService.createParty(request), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/party/{partyId}")
