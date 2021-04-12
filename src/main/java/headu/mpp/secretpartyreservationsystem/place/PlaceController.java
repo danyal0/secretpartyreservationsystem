@@ -17,7 +17,7 @@ public class PlaceController {
 
     private final PlaceService placeService;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Place> createPlace (@RequestBody PlaceCreationRequest request) {
         return new ResponseEntity<>(placeService.createPlace(request), HttpStatus.CREATED);
     }
