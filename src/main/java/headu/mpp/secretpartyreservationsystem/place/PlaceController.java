@@ -1,5 +1,6 @@
 package headu.mpp.secretpartyreservationsystem.place;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +17,9 @@ public class PlaceController {
 
     private final PlaceService placeService;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Place> createPlace (@RequestBody PlaceCreationRequest request) {
-        return ResponseEntity.ok(placeService.createPlace(request));
+        return new ResponseEntity<>(placeService.createPlace(request), HttpStatus.CREATED);
     }
 
 }

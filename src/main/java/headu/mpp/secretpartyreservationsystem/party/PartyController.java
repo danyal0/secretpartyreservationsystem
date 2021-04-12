@@ -12,12 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/place")
 @RequiredArgsConstructor
 public class PartyController {
     @Autowired
-    private final PlaceService placeService;
-
     private final PartyService partyService;
 
     @GetMapping("/party")
