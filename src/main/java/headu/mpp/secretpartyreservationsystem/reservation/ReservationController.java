@@ -4,6 +4,7 @@ package headu.mpp.secretpartyreservationsystem.reservation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.SQLUpdate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class ReservationController implements Serializable {
     public final  ReservationService reservationService;
     @PostMapping("/reservation")
     public ResponseEntity<Reservation> makeReservation (@RequestBody ReservationCreationRequest request) {
-        return ResponseEntity.ok(reservationService.makeReservation(request));
+        return new ResponseEntity<>(reservationService.makeReservation(request), HttpStatus.CREATED);
     }
     @GetMapping("/reservation/accept/{reservationId}")
     public ResponseEntity<Reservation> acceptReservation (@PathVariable Long reservationId) {
