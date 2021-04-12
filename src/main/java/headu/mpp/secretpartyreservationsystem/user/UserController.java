@@ -1,5 +1,6 @@
 package headu.mpp.secretpartyreservationsystem.user;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,9 +17,10 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity createUser (@RequestBody UserCreateRequest userCreateRequest) {
-        userService.createUser(userCreateRequest);
+        //userService.createUser(userCreateRequest);
         //return ResponseEntity.ok().build();
-        ResponseEntity.status(201).build();
+       //return ResponseEntity.status(201).build();
+        return new ResponseEntity<>(userService.createUser(userCreateRequest), HttpStatus.CREATED);
     }
 
 }
