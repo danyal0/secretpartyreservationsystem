@@ -27,7 +27,18 @@ public class Party {
     private Date party_date;
     private Long user_id;
 
-
+    @Override
+    public String toString() {
+        return "Party{" +
+                "id=" + id +
+                ", capacity=" + capacity +
+                ", place_id=" + place_id +
+                ", dress_code='" + dress_code + '\'' +
+                ", name='" + name + '\'' +
+                ", party_date=" + party_date +
+                ", user_id=" + user_id +
+                '}';
+    }
 //    @ManyToOne
 //    @JoinColumn(name = "place_id")
 //    @JsonManagedReference

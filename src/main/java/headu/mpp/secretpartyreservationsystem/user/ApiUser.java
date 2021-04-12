@@ -26,6 +26,7 @@ public class ApiUser {
     private Date dob;
     private String email;
     private Long address_id;
+   // private Address address;
 
 //    @JsonBackReference
 //    @OneToMany(mappedBy = "users",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
