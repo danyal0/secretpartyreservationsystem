@@ -42,7 +42,7 @@ public class TestMakeReservation {
         mockMvc.perform(post("/api/party/reservation")
                 .header("Authorization", "Bearer " + token)
                 .contentType(MediaType.APPLICATION_JSON).characterEncoding("utf-8")
-                .content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+                .content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id", Matchers.equalTo(1)))
                 .andExpect(jsonPath("$.guestId", Matchers.equalTo(1)))
                 .andExpect(jsonPath("$.partyId", Matchers.equalTo(1)))
